@@ -1,10 +1,12 @@
 package org.example;
 
 public class OrderService {
-    public OrderService() {
-        System.out.println("Order Service Constructor called");
+    private PaymentService paymentService;
+    public OrderService(PaymentService paymentService) {
+        this.paymentService = paymentService;
     }
     public void placeOrder(){
+        paymentService.pay();
         System.out.println("Order Placed");
     }
 }

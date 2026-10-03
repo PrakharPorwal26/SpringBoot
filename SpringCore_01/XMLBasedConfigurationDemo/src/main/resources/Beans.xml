@@ -5,8 +5,12 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id = "orderService"
-          name = "orderServiceBean, orderServiceBean1, orderServiceBean2"
-          class = "org.example.OrderService"/>
-    <bean id = "orderService1" class = "org.example.OrderService"/>
+          class = "org.example.OrderService">
+          <constructor-arg ref = "paymentService"/>
+    </bean>
+    <bean id = "paymentService" class = "org.example.PaymentService">
+        <constructor-arg index = "0" value = "UPI"/>
+        <constructor-arg index = "1" value = "2" />
+    </bean>
 
 </beans>
